@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/main_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+   <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:backgroundTint="@color/main_background"
+       app:layout_constraintBottom_toBottomOf="@id/main">
+
+       <Button
+           style="@style/StyleNavButton"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:layout_marginStart="@dimen/navigation_button_margin_twice"
+           android:layout_marginEnd="@dimen/navigation_button_margin_half"
+           android:layout_marginVertical="@dimen/navigation_button_margin_base"
+           android:padding="@dimen/navigation_button_padding_base"
+           android:backgroundTint="@color/button_ordinary"
+           android:text="@string/caption_categories"
+           />
+
+       <Button
+           style="@style/StyleNavButton"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:layout_marginStart="@dimen/navigation_button_margin_half"
+           android:layout_marginEnd="@dimen/navigation_button_margin_twice"
+           android:layout_marginVertical="@dimen/navigation_button_margin_base"
+           android:padding="@dimen/navigation_button_padding_base"
+           android:backgroundTint="@color/button_attractive"
+           android:text="@string/caption_favorites"
+           app:icon="@drawable/ic_heart_empty"
+           app:iconGravity="textEnd"
+           />
+
+   </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
