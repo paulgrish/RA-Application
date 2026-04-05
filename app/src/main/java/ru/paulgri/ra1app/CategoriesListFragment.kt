@@ -1,11 +1,10 @@
 package ru.paulgri.ra1app
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.paulgri.ra1app.databinding.ActivityMainBinding
+import androidx.fragment.app.Fragment
 import ru.paulgri.ra1app.databinding.FragmentListCategoriesBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,7 +23,7 @@ class CategoriesListFragment : Fragment() {
     private var param2: String? = null
 
     val binding: FragmentListCategoriesBinding
-        get() = _binding ?: throw Exception()
+        get() = _binding ?: throw IllegalStateException("CategoriesListFragment: Binding is null")
 
     private var _binding: FragmentListCategoriesBinding? = null
 

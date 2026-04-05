@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.commit
+import androidx.fragment.app.add
 import ru.paulgri.ra1app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,5 +24,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add<CategoriesListFragment>(R.id.mainContainer)
+            }
+        }
     }
 }
