@@ -9,7 +9,18 @@
     android:background="@color/main_background"
     tools:context=".MainActivity">
 
-   <LinearLayout
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="@+id/main"
+        app:layout_constraintLeft_toLeftOf="@+id/main"
+        app:layout_constraintRight_toRightOf="@+id/main"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_bar">
+
+    </androidx.fragment.app.FragmentContainerView>
+
+    <LinearLayout
        android:orientation="horizontal"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
@@ -17,6 +28,14 @@
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent">
+
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/main_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/main">
 
        <Button
            style="@style/StyleNavButton"

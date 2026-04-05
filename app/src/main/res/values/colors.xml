@@ -3,7 +3,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_background">#FFF4FAFF</color>
     <color name="button_ordinary">#FF525DC0</color>
-    <color name="button_attractive">#FFE13E3E</color>
+    <color name="fragment_background">#FF5F3678</color>
+    <color name="button_accented">#FFE13E3E</color>
     <color name="navigation_bar">#FFF5F5F5</color>
     <color name="status_bar">#FF4D4D87</color>
 </resources>
