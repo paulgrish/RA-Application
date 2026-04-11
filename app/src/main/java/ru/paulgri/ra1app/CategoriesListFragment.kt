@@ -38,9 +38,9 @@ class CategoriesListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentListCategoriesBinding.inflate(layoutInflater)
+        _binding = FragmentListCategoriesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
