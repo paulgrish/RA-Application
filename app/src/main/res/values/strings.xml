@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RA First Application</string>
+    <string name="caption_categories">категории</string>
+    <string name="caption_favorites">избранное</string>
 </resources>
