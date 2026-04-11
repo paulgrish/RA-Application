@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -9,43 +8,51 @@
     android:background="@color/main_background"
     tools:context=".MainActivity">
 
-   <LinearLayout
-       android:orientation="horizontal"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:background="@color/main_background"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintEnd_toEndOf="parent">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-       <Button
-           style="@style/StyleNavButton"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:layout_marginStart="@dimen/navigation_button_margin_twice"
-           android:layout_marginEnd="@dimen/navigation_button_margin_half"
-           android:layout_marginVertical="@dimen/navigation_button_margin_base"
-           android:padding="@dimen/navigation_button_padding_base"
-           android:backgroundTint="@color/button_ordinary"
-           android:text="@string/caption_categories"
-           />
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-       <Button
-           style="@style/StyleNavButton"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:layout_marginStart="@dimen/navigation_button_margin_half"
-           android:layout_marginEnd="@dimen/navigation_button_margin_twice"
-           android:layout_marginVertical="@dimen/navigation_button_margin_base"
-           android:padding="@dimen/navigation_button_padding_base"
-           android:backgroundTint="@color/button_attractive"
-           android:text="@string/caption_favorites"
-           app:icon="@drawable/ic_heart_empty"
-           app:iconGravity="textEnd"
-           />
+        <Button
+            style="@style/StyleNavButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/navigation_button_margin_base"
+            android:layout_marginStart="@dimen/navigation_button_margin_twice"
+            android:layout_marginEnd="@dimen/navigation_button_margin_half"
+            android:layout_weight="1"
+            android:backgroundTint="@color/button_ordinary"
+            android:padding="@dimen/navigation_button_padding_base"
+            android:text="@string/caption_categories" />
 
-   </LinearLayout>
+        <Button
+            style="@style/StyleNavButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/navigation_button_margin_base"
+            android:layout_marginStart="@dimen/navigation_button_margin_half"
+            android:layout_marginEnd="@dimen/navigation_button_margin_twice"
+            android:layout_weight="1"
+            android:backgroundTint="@color/button_accented"
+            android:padding="@dimen/navigation_button_padding_base"
+            android:text="@string/caption_favorites"
+            app:icon="@drawable/ic_heart_empty"
+            app:iconGravity="textEnd" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

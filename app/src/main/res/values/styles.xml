@@ -13,4 +13,12 @@
         <item name="cornerRadius">8dp</item>
     </style>
 
+    <style name="StyleTitle20" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/montserrat_alternates_semibold_600</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

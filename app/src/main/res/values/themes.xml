@@ -2,7 +2,9 @@
 
     <style name="Base.Theme.RAFirstApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/navigation_bar</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 
     <style name="Theme.RAFirstApplication" parent="Base.Theme.RAFirstApplication">
