@@ -6,15 +6,12 @@ import ru.paulgri.ra1app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    val binding: ActivityMainBinding
-        get() = _binding ?: throw Exception()
-
-    private var _binding: ActivityMainBinding? = null
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 //            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

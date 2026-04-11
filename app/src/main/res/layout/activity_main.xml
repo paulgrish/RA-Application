@@ -14,7 +14,9 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:background="@color/main_background"
-       app:layout_constraintBottom_toBottomOf="@id/main">
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent">
 
        <Button
            style="@style/StyleNavButton"
