@@ -15,7 +15,7 @@ import ru.paulgri.ra1app.databinding.FragmentFavoritesBinding
 class FavoritesFragment : Fragment() {
 
     private val binding: FragmentFavoritesBinding
-        get() = _binding ?: throw IllegalStateException("CategoriesListFragment: Binding is null")
+        get() = _binding ?: throw IllegalStateException("FavoritesFragment: Binding is null")
 
     private var _binding: FragmentFavoritesBinding? = null
 
