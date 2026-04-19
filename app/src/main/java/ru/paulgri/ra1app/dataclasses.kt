@@ -1,6 +1,6 @@
 package ru.paulgri.ra1app
 
-data class Categories(
+data class Category(
     val id: Int,
     val title: String,
     val description: String,
