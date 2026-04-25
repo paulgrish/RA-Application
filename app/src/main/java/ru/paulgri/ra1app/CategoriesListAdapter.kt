@@ -39,7 +39,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
                 )
             )
         } catch (e: Exception) {
-            Log.println(Log.ERROR, "CategoryListAdapter", e.stackTrace.toString())
+            Log.e("CategoryListAdapter", e.stackTrace.toString())
         }
     }
 
