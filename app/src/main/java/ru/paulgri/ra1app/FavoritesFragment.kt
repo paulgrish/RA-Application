@@ -7,11 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.paulgri.ra1app.databinding.FragmentFavoritesBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoritesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FavoritesFragment : Fragment() {
 
     private val binding: FragmentFavoritesBinding
@@ -23,7 +18,6 @@ class FavoritesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,5 +27,4 @@ class FavoritesFragment : Fragment() {
         _binding = null
         super.onDestroyView()
     }
-
 }

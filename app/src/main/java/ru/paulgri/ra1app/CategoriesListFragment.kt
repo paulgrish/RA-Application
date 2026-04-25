@@ -7,11 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.paulgri.ra1app.databinding.FragmentListCategoriesBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoriesListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CategoriesListFragment : Fragment() {
 
     private val binding: FragmentListCategoriesBinding
