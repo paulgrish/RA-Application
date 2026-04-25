@@ -16,11 +16,6 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
         val ivImage = binding.ivCardImage
         val tvTitle = binding.tvCardTitle
         val tvDescription = binding.tvCardDescription
-
-        init {
-            // Define click listener for the ViewHolder's View
-//            textView = view.findViewById(R.id.textView)
-        }
     }
 
     // Create new views (invoked by the layout manager)
@@ -48,7 +43,5 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
         }
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
-
 }

@@ -25,7 +25,12 @@ class CategoriesListFragment : Fragment() {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentListCategoriesBinding.inflate(inflater, container, false)
+        initRecycler()
         return binding.root
+    }
+
+    fun initRecycler() {
+        binding.rvCategories.adapter = CategoriesListAdapter(STUB.getCategories())
     }
 
     override fun onDestroyView() {
