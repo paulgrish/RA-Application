@@ -14,6 +14,11 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="StyleCardText12" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/montserrat_alternates_semibold_600</item>
+    </style>
+
     <style name="StyleNavButton" parent="Widget.Material3.Button">
         <item name="android:textAppearance">@style/StyleTitle14</item>
         <item name="cornerRadius">8dp</item>
