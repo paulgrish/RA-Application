@@ -10,12 +10,23 @@ import ru.paulgri.ra1app.databinding.ItemCategoryBinding.bind
 
 class CategoriesListAdapter(private val dataSet: List<Category>) :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val binding = bind(itemView)
         val ivImage = binding.ivCardImage
         val tvTitle = binding.tvCardTitle
         val tvDescription = binding.tvCardDescription
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick()
+    }
+
+    var itemClickListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -38,6 +49,9 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
                 null
             }
         )
+        viewHolder.itemView.setOnClickListener {
+            itemClickListener?.onItemClick()
+        }
     }
 
     override fun getItemCount() = dataSet.size
