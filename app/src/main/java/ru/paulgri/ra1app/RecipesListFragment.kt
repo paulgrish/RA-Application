@@ -8,10 +8,21 @@ import android.view.ViewGroup
 
 class RecipesListFragment : Fragment() {
 
+    var categoryId: Int? = null
+    var categoryName: String? = null
+    var categoryImageUrl: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_recipes_list, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        categoryId = arguments?.getInt(ARG_CATEGORY_ID)
+        categoryName = arguments?.getString(ARG_CATEGORY_NAME)
+        categoryImageUrl = arguments?.getString(ARG_CATEGORY_IMAGE_URL)
     }
 }
