@@ -35,7 +35,7 @@ class CategoriesListFragment : Fragment() {
         categoriesListAdapter = CategoriesListAdapter(STUB.getCategories())
         binding.rvCategories.adapter = categoriesListAdapter
         categoriesListAdapter.setOnItemClickListener(
-            object: CategoriesListAdapter.OnItemClickListener {
+            object : CategoriesListAdapter.OnItemClickListener {
                 override fun onItemClick(categoryId: Int) {
                     openRecipesByCategoryId(categoryId)
                 }
@@ -53,7 +53,11 @@ class CategoriesListFragment : Fragment() {
         bundle.putString("ARG_CATEGORY_IMAGE_URL", categoryImageUrl)
         requireActivity().supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace(R.id.mainContainer, RecipesListFragment(), bundle)
+            replace(
+                R.id.mainContainer,
+                RecipesListFragment().apply {
+                    arguments = bundle
+                })
             addToBackStack(null)
         }
     }
