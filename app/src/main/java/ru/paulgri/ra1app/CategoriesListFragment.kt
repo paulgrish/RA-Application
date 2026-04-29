@@ -5,26 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ru.paulgri.ra1app.databinding.FragmentListCategoriesBinding
+import androidx.fragment.app.commit
+import ru.paulgri.ra1app.databinding.FragmentCategoriesListBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoriesListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CategoriesListFragment : Fragment() {
 
-    private val binding: FragmentListCategoriesBinding
+    private val binding: FragmentCategoriesListBinding
         get() = _binding ?: throw IllegalStateException("CategoriesListFragment: Binding is null")
 
-    private var _binding: FragmentListCategoriesBinding? = null
+    private var _binding: FragmentCategoriesListBinding? = null
+
+    private lateinit var categoriesListAdapter: CategoriesListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentListCategoriesBinding.inflate(inflater, container, false)
+        _binding = FragmentCategoriesListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,7 +32,23 @@ class CategoriesListFragment : Fragment() {
     }
 
     fun initRecycler() {
-        binding.rvCategories.adapter = CategoriesListAdapter(STUB.getCategories())
+        categoriesListAdapter = CategoriesListAdapter(STUB.getCategories())
+        binding.rvCategories.adapter = categoriesListAdapter
+        categoriesListAdapter.setOnItemClickListener(
+            object: CategoriesListAdapter.OnItemClickListener {
+                override fun onItemClick() {
+                    openRecipesByCategoryId()
+                }
+            }
+        )
+    }
+
+    private fun openRecipesByCategoryId() {
+        requireActivity().supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.mainContainer, RecipesListFragment())
+            addToBackStack(null)
+        }
     }
 
     override fun onDestroyView() {
