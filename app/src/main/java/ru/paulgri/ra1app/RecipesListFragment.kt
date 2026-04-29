@@ -1,7 +1,6 @@
 package ru.paulgri.ra1app
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +24,5 @@ class RecipesListFragment : Fragment() {
         categoryId = arguments?.getInt(ARG_CATEGORY_ID)
         categoryName = arguments?.getString(ARG_CATEGORY_NAME)
         categoryImageUrl = arguments?.getString(ARG_CATEGORY_IMAGE_URL)
-        Log.d("RecipesListFragment", "ID: $categoryId, Name: $categoryName, URL: $categoryImageUrl")
     }
 }
