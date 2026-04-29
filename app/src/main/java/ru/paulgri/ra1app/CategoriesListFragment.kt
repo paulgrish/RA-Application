@@ -47,10 +47,12 @@ class CategoriesListFragment : Fragment() {
         val category: Category? = STUB.getCategories().find { it.id == categoryId }
         val categoryName = category?.title ?: ""
         val categoryImageUrl = category?.imageUrl ?: ""
+
         val bundle = Bundle()
-        bundle.putInt("ARG_CATEGORY_ID", categoryId)
-        bundle.putString("ARG_CATEGORY_NAME", categoryName)
-        bundle.putString("ARG_CATEGORY_IMAGE_URL", categoryImageUrl)
+        bundle.putInt(ARG_CATEGORY_ID, categoryId)
+        bundle.putString(ARG_CATEGORY_NAME, categoryName)
+        bundle.putString(ARG_CATEGORY_IMAGE_URL, categoryImageUrl)
+
         requireActivity().supportFragmentManager.commit {
             setReorderingAllowed(true)
             replace(
