@@ -20,7 +20,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
     }
 
     interface OnItemClickListener {
-        fun onItemClick()
+        fun onItemClick(categoryId: Int)
     }
 
     var itemClickListener: OnItemClickListener? = null
@@ -50,7 +50,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
             }
         )
         viewHolder.itemView.setOnClickListener {
-            itemClickListener?.onItemClick()
+            itemClickListener?.onItemClick(dataSet[position].id)
         }
     }
 
