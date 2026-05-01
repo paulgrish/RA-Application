@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.paulgri.ra1app.databinding.ItemCardBinding.bind
+import ru.paulgri.ra1app.databinding.ItemRecipeBinding.bind
 
 class RecipesListAdapter(private val dataSet: List<Recipe>) :
     RecyclerView.Adapter<RecipesListAdapter.ViewHolder>() {
@@ -16,7 +16,6 @@ class RecipesListAdapter(private val dataSet: List<Recipe>) :
         val binding = bind(itemView)
         val ivImage = binding.ivCardImage
         val tvTitle = binding.tvCardTitle
-        val tvDescription = binding.tvCardDescription
     }
 
     interface OnItemClickListener {
@@ -31,13 +30,12 @@ class RecipesListAdapter(private val dataSet: List<Recipe>) :
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.item_card, viewGroup, false)
+            .inflate(R.layout.item_recipe, viewGroup, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.tvTitle.text = dataSet[position].title
-        viewHolder.tvDescription.text = null
         viewHolder.ivImage.setImageDrawable(
             try {
                 Drawable.createFromStream(

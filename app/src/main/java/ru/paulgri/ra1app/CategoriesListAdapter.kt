@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.paulgri.ra1app.databinding.ItemCardBinding.bind
+import ru.paulgri.ra1app.databinding.ItemCategoryBinding.bind
 
 class CategoriesListAdapter(private val dataSet: List<Category>) :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
@@ -31,7 +31,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.item_card, viewGroup, false)
+            .inflate(R.layout.item_category, viewGroup, false)
         return ViewHolder(view)
     }
 

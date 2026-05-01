@@ -55,7 +55,7 @@ class RecipesListFragment : Fragment() {
     }
 
     fun initRecycler() {
-        recipesListAdapter = RecipesListAdapter(STUB.getRecipesByCategoryId(categoryId ?: -1))
+        recipesListAdapter = RecipesListAdapter(STUB.getRecipesByCategoryId(0))
         binding.rvRecipes.adapter = recipesListAdapter
         recipesListAdapter.setOnItemClickListener(
             object : RecipesListAdapter.OnItemClickListener {
