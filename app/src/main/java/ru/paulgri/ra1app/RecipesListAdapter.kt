@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.paulgri.ra1app.databinding.ItemCardBinding.bind
 
-class CategoriesListAdapter(private val dataSet: List<Category>) :
-    RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
+class RecipesListAdapter(private val dataSet: List<Recipe>) :
+    RecyclerView.Adapter<RecipesListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -20,7 +20,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
     }
 
     interface OnItemClickListener {
-        fun onItemClick(categoryId: Int)
+        fun onItemClick(recipeId: Int)
     }
 
     var itemClickListener: OnItemClickListener? = null
@@ -37,7 +37,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.tvTitle.text = dataSet[position].title
-        viewHolder.tvDescription.text = dataSet[position].description
+        viewHolder.tvDescription.text = null
         viewHolder.ivImage.setImageDrawable(
             try {
                 Drawable.createFromStream(
@@ -45,7 +45,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
                     null
                 )
             } catch (e: Exception) {
-                Log.e("CategoryListAdapter", e.stackTrace.toString())
+                Log.e("RecipesListAdapter", e.stackTrace.toString())
                 null
             }
         )

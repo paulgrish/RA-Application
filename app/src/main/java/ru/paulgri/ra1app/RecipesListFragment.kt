@@ -15,6 +15,8 @@ class RecipesListFragment : Fragment() {
         get() = _binding ?: throw IllegalStateException("RecipesListFragment: Binding is null")
     private var _binding: FragmentRecipesListBinding? = null
 
+    private lateinit var recipesListAdapter: RecipesListAdapter
+
     var categoryId: Int? = null
     var categoryName: String? = null
     var categoryImageUrl: String? = null
@@ -45,6 +47,20 @@ class RecipesListFragment : Fragment() {
             } catch (e: Exception) {
                 Log.e("RecipesListFragment", e.stackTrace.toString())
                 null
+            }
+        )
+
+        initRecycler()
+    }
+
+    fun initRecycler() {
+        recipesListAdapter = RecipesListAdapter(STUB.getRecipesByCategoryId(categoryId ?: -1))
+        binding.rvRecipes.adapter = recipesListAdapter
+        recipesListAdapter.setOnItemClickListener(
+            object : RecipesListAdapter.OnItemClickListener {
+                override fun onItemClick(recipeId: Int) {
+//                    openRecipesById(recipeId) // TODO: to implement
+                }
             }
         )
     }
