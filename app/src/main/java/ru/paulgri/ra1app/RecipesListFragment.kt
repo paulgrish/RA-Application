@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.commit
 import ru.paulgri.ra1app.databinding.FragmentRecipesListBinding
 
 class RecipesListFragment : Fragment() {
@@ -24,7 +25,7 @@ class RecipesListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentRecipesListBinding.inflate(inflater, container, false)
         return binding.root
@@ -59,9 +60,18 @@ class RecipesListFragment : Fragment() {
         recipesListAdapter.setOnItemClickListener(
             object : RecipesListAdapter.OnItemClickListener {
                 override fun onItemClick(recipeId: Int) {
-//                    openRecipesById(recipeId) // TODO: to implement
+                    openRecipeByRecipeId(recipeId)
                 }
             }
         )
     }
+
+    private fun openRecipeByRecipeId(recipeId: Int) {
+        requireActivity().supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.mainContainer, RecipeFragment())
+            addToBackStack(null)
+        }
+    }
+
 }
