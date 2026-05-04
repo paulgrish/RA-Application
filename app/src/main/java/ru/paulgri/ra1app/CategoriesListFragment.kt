@@ -12,7 +12,6 @@ class CategoriesListFragment : Fragment() {
 
     private val binding: FragmentCategoriesListBinding
         get() = _binding ?: throw IllegalStateException("CategoriesListFragment: Binding is null")
-
     private var _binding: FragmentCategoriesListBinding? = null
 
     private lateinit var categoriesListAdapter: CategoriesListAdapter
