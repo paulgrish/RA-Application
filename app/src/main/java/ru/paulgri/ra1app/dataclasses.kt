@@ -1,5 +1,6 @@
 package ru.paulgri.ra1app
 
+import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -12,17 +13,28 @@ data class Category(
     val imageUrl: String,
 ) : Parcelable {
     override fun describeContents(): Int {
-        TODO("Not yet implemented")
+        return 0
     }
-    override fun writeToParcel(p0: Parcel, p1: Int) {
-        TODO("Not yet implemented")
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
+        parcel.writeString(title)
+        parcel.writeString(description)
+        parcel.writeString(imageUrl)
     }
-    companion object CREATOR: Parcelable.Creator<Category> {
-        override fun createFromParcel(p0: Parcel?): Category? {
-            TODO("Not yet implemented")
+
+    companion object CREATOR : Parcelable.Creator<Category> {
+        override fun createFromParcel(parcel: Parcel): Category? {
+            return Category(
+                parcel.readInt(),
+                parcel.readString().toString(),
+                parcel.readString().toString(),
+                parcel.readString().toString(),
+            )
         }
-        override fun newArray(p0: Int): Array<out Category?>? {
-            TODO("Not yet implemented")
+
+        override fun newArray(size: Int): Array<out Category?>? {
+            return arrayOfNulls(size)
         }
     }
 }
@@ -34,17 +46,26 @@ data class Ingredient(
     val description: String,
 ) : Parcelable {
     override fun describeContents(): Int {
-        TODO("Not yet implemented")
+        return 0
     }
-    override fun writeToParcel(p0: Parcel, p1: Int) {
-        TODO("Not yet implemented")
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeFloat(quantity)
+        parcel.writeString(unitOfMeasure)
+        parcel.writeString(description)
     }
-    companion object CREATOR: Parcelable.Creator<Ingredient> {
-        override fun createFromParcel(p0: Parcel?): Ingredient? {
-            TODO("Not yet implemented")
+
+    companion object CREATOR : Parcelable.Creator<Ingredient> {
+        override fun createFromParcel(parcel: Parcel): Ingredient? {
+            return Ingredient(
+                parcel.readFloat(),
+                parcel.readString().toString(),
+                parcel.readString().toString(),
+            )
         }
-        override fun newArray(p0: Int): Array<out Ingredient?>? {
-            TODO("Not yet implemented")
+
+        override fun newArray(size: Int): Array<out Ingredient?>? {
+            return arrayOfNulls(size)
         }
 
     }
@@ -59,17 +80,30 @@ data class Recipe(
     val imageUrl: String,
 ) : Parcelable {
     override fun describeContents(): Int {
-        TODO("Not yet implemented")
+        return 0
     }
-    override fun writeToParcel(p0: Parcel, p1: Int) {
-        TODO("Not yet implemented")
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
+        parcel.writeString(title)
+        parcel.writeParcelableList(ingredients, flags)
+        parcel.writeStringList(method)
+        parcel.writeString(imageUrl)
     }
-    companion object CREATOR: Parcelable.Creator<Recipe> {
-        override fun createFromParcel(p0: Parcel?): Recipe? {
-            TODO("Not yet implemented")
+
+    companion object CREATOR : Parcelable.Creator<Recipe> {
+        override fun createFromParcel(parcel: Parcel): Recipe? {
+            return Recipe(
+                parcel.readInt(),
+                parcel.readString().toString(),
+                @Suppress("DEPRECATION") parcel.readParcelableList(mutableListOf(), Ingredient::class.java.classLoader),
+                parcel.createStringArrayList() ?: emptyList(),
+                parcel.readString().toString(),
+            )
         }
-        override fun newArray(p0: Int): Array<out Recipe?>? {
-            TODO("Not yet implemented")
+
+        override fun newArray(size: Int): Array<out Recipe?>? {
+            return arrayOfNulls(size)
         }
 
     }

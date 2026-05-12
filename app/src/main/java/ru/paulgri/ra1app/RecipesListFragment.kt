@@ -67,9 +67,12 @@ class RecipesListFragment : Fragment() {
     }
 
     private fun openRecipeByRecipeId(recipeId: Int) {
+        val recipe = STUB.getRecipeById(recipeId)
+        val bundle = Bundle()
+        bundle.putParcelable(ARG_RECIPE, recipe)
         requireActivity().supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace(R.id.mainContainer, RecipeFragment())
+            replace(R.id.mainContainer, RecipeFragment::class.java, bundle)
             addToBackStack(null)
         }
     }
