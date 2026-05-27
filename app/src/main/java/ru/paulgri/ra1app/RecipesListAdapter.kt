@@ -12,7 +12,6 @@ class RecipesListAdapter(private val dataSet: List<Recipe>) :
     RecyclerView.Adapter<RecipesListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         val binding = bind(itemView)
         val ivImage = binding.ivCardImage
         val tvTitle = binding.tvCardTitle
