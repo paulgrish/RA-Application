@@ -31,12 +31,14 @@
             <TextView
                 android:id="@+id/tv_header_title"
                 style="@style/StyleHeaderTitle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:maxWidth="300dp"
                 tools:text="Рецепт" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -49,7 +51,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Ингредиенты" />
+            android:text="@string/caption_ingredients" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_ingredients"
@@ -73,7 +75,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Способ приготовления" />
+            android:text="@string/caption_method" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_method"

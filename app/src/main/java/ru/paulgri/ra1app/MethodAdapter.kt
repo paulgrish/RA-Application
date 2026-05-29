@@ -21,9 +21,8 @@ class MethodAdapter(private val dataset: List<String>?) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.tvText.text = dataset?.getOrNull(position)?.let {
-            "%d. %s".format(position + 1, it)
-        } ?: viewHolder.itemView.context.getString(R.string.error_load_recipe)
+        viewHolder.tvText.text = dataset?.getOrNull(position)
+            ?: viewHolder.itemView.context.getString(R.string.error_load_recipe)
     }
 
     override fun getItemCount() = dataset?.size ?: 1
