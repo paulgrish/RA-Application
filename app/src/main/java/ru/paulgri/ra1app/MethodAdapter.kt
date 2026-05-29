@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.paulgri.ra1app.databinding.ItemMethodBinding.bind
 
-class MethodAdapter(private val dataset: List<String>) :
+class MethodAdapter(private val dataset: List<String>?) :
     RecyclerView.Adapter<MethodAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -21,9 +21,11 @@ class MethodAdapter(private val dataset: List<String>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.tvText.text = "%d. %s".format(position + 1, dataset[position])
+        viewHolder.tvText.text = dataset?.getOrNull(position)?.let {
+            "%d. %s".format(position + 1, it)
+        } ?: viewHolder.itemView.context.getString(R.string.error_load_recipe)
     }
 
-    override fun getItemCount() = dataset.size
+    override fun getItemCount() = dataset?.size ?: 1
 
 }

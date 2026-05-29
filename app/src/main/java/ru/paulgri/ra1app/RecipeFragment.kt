@@ -1,5 +1,6 @@
 package ru.paulgri.ra1app
 
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.divider.MaterialDividerItemDecoration
 import ru.paulgri.ra1app.databinding.FragmentRecipeBinding
 
 class RecipeFragment : Fragment() {
@@ -35,5 +38,36 @@ class RecipeFragment : Fragment() {
             @Suppress("DEPRECATION") arguments?.getParcelable(ARG_RECIPE)
         Log.d("RecipeFragment", recipe.toString())
         binding.tvHeaderTitle.text = recipe?.title
+        binding.ivHeaderImage.setImageDrawable(
+            try {
+                Drawable.createFromStream(
+                    binding.ivHeaderImage.context.assets.open((recipe?.imageUrl) ?: ""),
+                    null
+                )
+            } catch (e: Exception) {
+                Log.e("CategoryListAdapter", e.stackTrace.toString())
+                null
+            }
+        )
+        binding.rvIngredients.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = IngredientsAdapter(recipe?.ingredients)
+            addItemDecoration(
+                MaterialDividerItemDecoration(
+                    requireContext(),
+                    LinearLayoutManager.VERTICAL
+                )
+            )
+        }
+        binding.rvMethod.apply {
+            layoutManager= LinearLayoutManager(requireContext())
+            adapter= MethodAdapter(recipe?.method)
+            addItemDecoration(
+                MaterialDividerItemDecoration(
+                    requireContext(),
+                    LinearLayoutManager.VERTICAL
+                )
+            )
+        }
     }
 }

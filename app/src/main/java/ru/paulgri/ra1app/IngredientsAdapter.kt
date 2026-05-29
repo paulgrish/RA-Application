@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.paulgri.ra1app.databinding.ItemIngredientBinding.bind
 
-class IngredientsAdapter(private val dataset: List<Ingredient>) :
+class IngredientsAdapter(private val dataset: List<Ingredient>?) :
     RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -22,11 +22,16 @@ class IngredientsAdapter(private val dataset: List<Ingredient>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.tvName.text = dataset[position].description
-        viewHolder.tvAmount.text =
-            "%.2f %s".format(dataset[position].quantity, dataset[position].unitOfMeasure)
+        dataset?.getOrNull(position)?.let {
+            viewHolder.tvName.text = it.description
+            viewHolder.tvAmount.text = "%.2f %s".format(it.quantity, it.unitOfMeasure)
+        }.ifNull {
+            viewHolder.tvName.text =
+                viewHolder.itemView.context.getString(R.string.error_load_ingredients)
+            viewHolder.tvAmount.text = ""
+        }
     }
 
-    override fun getItemCount() = dataset.size
+    override fun getItemCount() = dataset?.size ?: 1
 
 }
