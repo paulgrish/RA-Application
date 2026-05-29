@@ -2,8 +2,8 @@
     <string name="app_name">RA First Application</string>
     <string name="caption_categories">категории</string>
     <string name="caption_favorites">избранное</string>
-    <string name="error_load_recipe">"Не удалось загрузить рецепт"</string>
-    <string name="error_load_ingredients">"Не удалось загрузить ингредиенты"</string>
+    <string name="error_load_recipe">Не удалось загрузить рецепт</string>
+    <string name="error_load_ingredients">Не удалось загрузить ингредиенты</string>
     <string name="caption_ingredients">Ингредиенты</string>
     <string name="caption_method">Способ приготовления</string>
 </resources>

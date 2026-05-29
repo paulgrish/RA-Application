@@ -43,7 +43,7 @@ class RecipeFragment : Fragment() {
         initRecycler()
     }
 
-    fun initRecycler() {
+    private fun initRecycler() {
         binding.rvIngredients.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = IngredientsAdapter(recipe?.ingredients)
@@ -66,7 +66,7 @@ class RecipeFragment : Fragment() {
         }
     }
 
-    fun initUI() {
+    private fun initUI() {
         binding.tvHeaderTitle.text = recipe?.title
         binding.ivHeaderImage.setImageDrawable(
             try {
