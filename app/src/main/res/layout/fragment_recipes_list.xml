@@ -44,7 +44,7 @@
         android:layout_marginHorizontal="@dimen/card_margin_half"
         android:layout_marginVertical="@dimen/card_margin_half"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
+        app:spanCount="1"
         tools:itemCount="8"
         tools:listitem="@layout/item_recipe"/>
 

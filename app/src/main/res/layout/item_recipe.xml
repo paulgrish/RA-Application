@@ -31,7 +31,7 @@
             android:padding="@dimen/card_margin_half"
             android:textAppearance="@style/StyleTitle14"
             android:textColor="@color/header_text"
-            tools:text="Название Категории" />
+            tools:text="Название рецепта" />
 
     </LinearLayout>
 

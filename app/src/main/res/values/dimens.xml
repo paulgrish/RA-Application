@@ -6,4 +6,6 @@
     <dimen name="navigation_button_padding_base">10dp</dimen>
     <dimen name="card_margin_base">16dp</dimen>
     <dimen name="card_margin_half">8dp</dimen>
+    <dimen name="recipe_padding_base">8dp</dimen>
+    <dimen name="recipe_padding_half">4dp</dimen>
 </resources>

@@ -1,20 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fragment_background"
-    android:orientation="vertical"
     tools:context=".RecipeFragment">
 
-    <TextView
-        android:id="@+id/tv_header_title"
-        style="@style/StyleHeaderTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Рецепт"
-        />
+        android:orientation="vertical">
 
-</LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_header_image"
+                android:layout_width="0dp"
+                android:layout_height="224dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/title_image_preview" />
+
+            <TextView
+                android:id="@+id/tv_header_title"
+                style="@style/StyleHeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:maxWidth="300dp"
+                tools:text="Рецепт" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_ingredients_header"
+            style="@style/StyleSectionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/caption_ingredients" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:padding="@dimen/recipe_padding_base"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="none"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_ingredient"
+            />
+
+        <TextView
+            android:id="@+id/tv_method_header"
+            style="@style/StyleSectionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/caption_method" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:padding="@dimen/recipe_padding_base"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="none"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_method"
+
+            />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
