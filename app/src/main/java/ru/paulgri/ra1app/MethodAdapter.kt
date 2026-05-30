@@ -26,5 +26,4 @@ class MethodAdapter(private val dataset: List<String>?) :
     }
 
     override fun getItemCount() = dataset?.size ?: 1
-
 }

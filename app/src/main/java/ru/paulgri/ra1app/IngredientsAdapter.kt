@@ -24,7 +24,10 @@ class IngredientsAdapter(private val dataset: List<Ingredient>?) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         dataset?.getOrNull(position)?.let {
             viewHolder.tvName.text = it.description
-            viewHolder.tvAmount.text = "%.2f %s".format(it.quantity, it.unitOfMeasure)
+            viewHolder.tvAmount.text = if (it.quantity > 0f)
+                "${it.quantity.formatCompact} ${it.unitOfMeasure}"
+            else
+                it.unitOfMeasure
         }.ifNull {
             viewHolder.tvName.text =
                 viewHolder.itemView.context.getString(R.string.error_load_ingredients)
@@ -33,5 +36,4 @@ class IngredientsAdapter(private val dataset: List<Ingredient>?) :
     }
 
     override fun getItemCount() = dataset?.size ?: 1
-
 }
